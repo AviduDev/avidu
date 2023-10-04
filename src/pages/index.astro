@@ -1,12 +1,89 @@
 ---
+import ServiceItem from "../components/ServiceItem.astro";
+import Title from "../components/Title.astro";
+import WhyItem from "../components/WhyItem.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <a href="/projects">projects</a>
+    <!-- hero section -->
+    <section class="p1 hero">
+      <h1 class="hero-title">
+        <span class="top"> Website designer</span>
+        <span class="bottom"> Front-end developer</span>
+      </h1>
+    </section>
+
+    <!-- intro section -->
+    <section class="intro p1">
+      <h2>BETTER WEBSITES FOR YOUR NEXT BIG IDEA</h2>
+      <p class="p-lg">
+        I build websites that are fast, SEO friendly, and looks unique(I think
+        so) that cost only $0*. With these websites, you can sell or present
+        your holy idea to your target audience.
+      </p>
+    </section>
+
+    <!-- services section -->
+    <section class="services p1">
+      <Title big="services" small="what you get" />
+      <p class="p-lg">
+        There are few types of websites needs to be consider before deciding, if
+        it match with your needs.
+      </p>
+      <ServiceItem text="Business Websites" />
+      <ServiceItem text="E-commerce Websites" />
+      <ServiceItem text="Portfolio Websites" />
+      <ServiceItem text="Blog Websites" />
+    </section>
+
+    <!-- why me section -->
+    <section class="p1 why">
+      <Title big="Why" small="Why choose me" />
+      <p class="p-lg">
+        If you needs a website, but not just another website? - In a world of
+        most the sites look and feels the same, there are less chance to stand
+        out from the competition.
+        <br />
+        <br />
+         This is where custom design comes, each website I create based on your
+        target audience not templates. So that your customer gets more tailored
+        experience and there are more and more chance to engage with your brand.
+      </p>
+
+      <WhyItem
+        title="fast websites"
+        description="The importance of a fast website cannot be overstated in today's digital landscape. It directly impacts user experience, search engine rankings, and overall business success."
+      />
+
+      <WhyItem
+        title="COST EFFECTIVENESS"
+        description="Websites I build based on modern approaches like 'Jamstack'. Its purpose is to create fast and secure sites, other than it provides ways to get started with 0 cost. So you can invest all into your business's success."
+      />
+
+      <WhyItem
+        title="EASE OF CHANGE"
+        description="To change a text on your website - you don't have to go to the site and open a website builder. Instead, we can use a browser-based dashboard to manage not just the text but all of your content on the website."
+      />
+    </section>
   </main>
 </Layout>
 
-<style></style>
+<style>
+  .hero {
+    display: flex;
+    min-height: 95vh;
+    background-size: cover;
+    text-align: center;
+    background-image: url("https://res.cloudinary.com/avidu/image/upload/v1695488712/hero.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>

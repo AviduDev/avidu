@@ -1,0 +1,24 @@
+---
+let d = new Date();
+let year = d.getFullYear();
+---
+
+<footer class="p1">
+  &copy;{year}
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 10rem;
+    background-color: #202020;
+    z-index: -100;
+    color: white;
+    align-items: center;
+  }
+</style>
