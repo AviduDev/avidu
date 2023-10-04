@@ -1,5 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro"
+import Layout from "../../layouts/Layout.astro";
 
 import { getProjects } from "../../utils/sanity";
 
@@ -7,15 +7,15 @@ const projects = await getProjects();
 ---
 
 <Layout title="">
-    <main>
-        <h1>Projects</h1>
+  <main>
+    <h1>Projects</h1>
 
-        {projects.map((project) => (
-            <a href={`/projects/${project.slug.current}`}>
-                <h3>
-                    {project.title}
-                    </h3>
-                </a>
-        ))}
-    </main>
+    {
+      projects.map((project) => (
+        <a href={`/projects/${project.slug.current}`}>
+          <h3>{project.title}</h3>
+        </a>
+      ))
+    }
+  </main>
 </Layout>
