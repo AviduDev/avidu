@@ -1,0 +1,24 @@
+---
+import Layout from "../../../layouts/Layout.astro"
+
+import { getProject, getProjects } from "../../../utils/sanity";
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects.map((project) => ({
+    params: { slug: project.slug.current },
+  }));
+}
+
+
+const { slug } = Astro.params;
+
+const project = await getProject(slug);
+
+---
+
+<Layout title={project.title}>
+    <main>
+        <h1>{project.title}</h1>
+    </main>
+</Layout>

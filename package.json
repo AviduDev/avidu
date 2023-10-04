@@ -1,0 +1,17 @@
+{
+  "name": "avidu-front",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@sanity/astro": "^1.3.0",
+    "astro": "^3.2.2",
+    "groq": "^3.17.0"
+  }
+}
