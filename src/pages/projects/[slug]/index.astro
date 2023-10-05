@@ -5,7 +5,7 @@ import { getProject, getProjects } from "../../../utils/sanity";
 
 export async function getStaticPaths() {
   const projects = await getProjects();
-  return projects.map((project) => ({
+  return projects.map((project: any) => ({
     params: { slug: project.slug.current },
   }));
 }

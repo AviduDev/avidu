@@ -1,9 +1,25 @@
 ---
-import Layout from "../../layouts/Layout.astro"
+import Layout from "../../layouts/Layout.astro";
+
+import { getWebsites } from "../../utils/sanity";
+
+const websites = await getWebsites();
 ---
 
 <Layout title="">
-    <main>
-        <h1>Website designs</h1>
-    </main>
+  <main>
+    <section class="top p1">
+      <h1>Which type?</h1>
+
+      <ul>
+        {websites.map((website: any) => (
+          <li>
+            <a href={`/website-design/${website.slug.current}`}>
+              {website.title}
+              </a>
+            </li>
+        ))}
+      </ul>
+    </section>
+  </main>
 </Layout>

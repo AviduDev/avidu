@@ -1,0 +1,24 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../../layouts/Layout.astro";
+
+import { getWebsites, getWebsite } from "../../../utils/sanity";
+
+export async function getStaticPaths() {
+  const websites = await getWebsites();
+  return websites.map((website: any) => ({
+    params: { slug: website.slug.current },
+  }));
+}
+
+
+const { slug } = Astro.params;
+
+const website = await getWebsite(slug);
+---
+
+<Layout title="">
+  <main>
+    <h1>{website.title}</h1>
+  </main>
+</Layout>

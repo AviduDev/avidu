@@ -11,7 +11,7 @@ const projects = await getProjects();
     <h1>Projects</h1>
 
     {
-      projects.map((project) => (
+      projects.map((project: any) => (
         <a href={`/projects/${project.slug.current}`}>
           <h3>{project.title}</h3>
         </a>
