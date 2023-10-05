@@ -1,0 +1,27 @@
+---
+import { Image, imageConfig } from "astro:assets";
+
+import image from "../../public/image.webp";
+---
+
+<li>
+    <div class="content">
+        <h3>Okkoma Co.</h3>
+        <p>2021</p>
+        <p>Design, Development, Branding</p>
+        <a href="#">Live</a>
+    </div>
+    <div class="image">
+        <Image 
+        src={image} 
+        alt="project image"
+        style="height: 100%; width: 100%; object-fit: cover;"
+        />
+    </div>
+</li>
+
+<style>
+    li {
+        border-top: solid black 1px;
+    }
+</style>

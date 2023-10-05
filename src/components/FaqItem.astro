@@ -1,0 +1,23 @@
+---
+interface Props {
+  number: number;
+  question: string;
+  answer: string;
+}
+
+const { number, question, answer } = Astro.props;
+---
+
+<li>
+  <h5>
+    <span class="number">{number + `. `}</span>
+    <span class="text">{question}</span>
+  </h5>
+  <p>{answer}</p>
+</li>
+
+<style>
+  li {
+    border-top: solid black 1px;
+  }
+</style>

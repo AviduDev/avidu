@@ -2,7 +2,10 @@
 import ServiceItem from "../components/ServiceItem.astro";
 import Title from "../components/Title.astro";
 import WhyItem from "../components/WhyItem.astro";
+import ProcessItem from "../components/ProcessItem.astro";
+import FaqItem from "../components/FaqItem.astro";
 import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -67,6 +70,76 @@ import Layout from "../layouts/Layout.astro";
         description="To change a text on your website - you don't have to go to the site and open a website builder. Instead, we can use a browser-based dashboard to manage not just the text but all of your content on the website."
       />
     </section>
+
+    <!-- recent 3 projects -->
+    <section class="p1 projects">
+      <Title big="Works" small="My recent works" />
+      <p class="p-lg">
+        Here's a list of website design, development, and other design-related
+        works that have been done for clients and myself.
+      </p>
+      <ProjectCard />
+    </section>
+
+    <!-- the process -->
+    <section class="p1 process">
+      <Title big="the.d5" small="the process" />
+      <p class="p-lg">
+        In the website development universe, all design processes have the same
+        meanings(in most cases) but with different names. Same as mine. The main
+        purpose of this process is to get to know you and your target audience
+        better and have an organized workflow.
+      </p>
+      <ProcessItem
+        title="define"
+        number={1}
+        description="The research process for understanding business goals and defining the target audience is a crucial step in effective web design. It lays the foundation for creating a website that aligns with the business's objectives and caters to the needs of its intended audience."
+      />
+      <ProcessItem
+        title="DESCRIBE"
+        number={2}
+        description="The content creation process in web design is a structured approach to developing and delivering high-quality, relevant, and engaging content for a website. It involves understanding the target audience, aligning content with business goals, and optimizing it for both user experience and search engines."
+      />
+      <ProcessItem
+        title="DESIGN"
+        number={3}
+        description="The design process in website development is a systematic approach to creating visually appealing, user-friendly, and effective websites. It involves translating the website's objectives, content, and user needs into an engaging and functional design."
+      />
+      <ProcessItem
+        title="DEVELOP"
+        number={4}
+        description="The development process in website development is a systematic approach to building a functional and interactive website based on the design and specifications. It involves translating the design's visual elements and user interactions into working code."
+      />
+      <ProcessItem
+        title="DEPLOY"
+        number={5}
+        description="The launch process in website development involves the final steps of preparing and releasing the website to the public. It's a critical phase that ensures a smooth transition from development to live deployment."
+      />
+    </section>
+
+    <!-- Faqs -->
+    <section class="p1 faqs">
+      <Title big="FAQS" small="What they ask" />
+      <p class="p-lg">
+        Here's what some clients asks about websites and designings. Any
+        question you have related to our services; Don't hesitate to reach us.
+      </p>
+      <FaqItem
+        number={1}
+        question="How much will it const to develop my website?"
+        answer="The cost of website development depends on various factors such as project complexity, features, design, and technology. But usaually costs around $500."
+      />
+      <FaqItem
+        number={2}
+        question="Will I be able to update my website content easilly?"
+        answer="Yes, I can integrate a user-friendly Content Management System (CMS) like HygraphCMS, Sanity, or Contentful allowing you to easily update and manage your website's content without technical skills."
+      />
+      <FaqItem
+        number={3}
+        question="Will I have ownership of the website and its source code once the project is completed?"
+        answer="Yes, upon project completion and final payment, you will have full ownership of the website and its source code unless otherwise specified in the contract."
+      />
+    </section>
   </main>
 </Layout>
 
@@ -87,3 +160,5 @@ import Layout from "../layouts/Layout.astro";
     justify-content: space-between;
   }
 </style>
+
+<script></script>
