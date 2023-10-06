@@ -1,27 +1,35 @@
 ---
 import { Image, imageConfig } from "astro:assets";
 
-import image from "../../public/image.webp";
+interface Props {
+  company: string;
+  year: number;
+  category: string;
+  liveUrl: string;
+}
+
+const { company, year, category, liveUrl, src, alt } = Astro.props;
 ---
 
 <li>
-    <div class="content">
-        <h3>Okkoma Co.</h3>
-        <p>2021</p>
-        <p>Design, Development, Branding</p>
-        <a href="#">Live</a>
-    </div>
-    <div class="image">
-        <Image 
-        src={image} 
-        alt="project image"
-        style="height: 100%; width: 100%; object-fit: cover;"
-        />
-    </div>
+  <div class="content">
+    <h3>{company}</h3>
+    <p>{year}</p>
+    <ul class="tags">
+      <li>{category}</li>
+    </ul>
+    <a href={liveUrl}>Live</a>
+  </div>
+  <div class="image"></div>
 </li>
 
 <style>
-    li {
-        border-top: solid black 1px;
-    }
+.tags {
+    display: flex;
+    flex-direction: column;
+}
+
+  li {
+    border-top: solid black 1px;
+  }
 </style>

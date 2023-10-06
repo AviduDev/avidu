@@ -1,4 +1,5 @@
 ---
+import ProjectCard from "../../components/ProjectCard.astro";
 import Layout from "../../layouts/Layout.astro";
 
 import { getProjects } from "../../utils/sanity";
@@ -8,14 +9,36 @@ const projects = await getProjects();
 
 <Layout title="">
   <main>
-    <h1>Projects</h1>
-
-    {
+    <!-- {
       projects.map((project: any) => (
         <a href={`/projects/${project.slug.current}`}>
           <h3>{project.title}</h3>
         </a>
       ))
-    }
+    } -->
+
+    <section class="p1 top">
+      <h1>Projects</h1>
+      <p class="p-lg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+        dicta similique facere ducimus asperiores! Praesentium enim obcaecati
+        perferendis iure eum!
+      </p>
+    </section>
+
+    <section class="p1">
+      <ul>
+        {
+          projects.map((project) => (
+            <ProjectCard
+              company={project.company}
+              category={project.projectType.map((type) => type)}
+              year={project.year}
+              liveUrl={project.liveUrl}
+            />
+          ))
+        }
+      </ul>
+    </section>
   </main>
 </Layout>

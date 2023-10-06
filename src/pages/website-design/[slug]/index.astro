@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../../layouts/Layout.astro";
 
 import { getWebsites, getWebsite } from "../../../utils/sanity";
+import Title from "../../../components/Title.astro";
 
 export async function getStaticPaths() {
   const websites = await getWebsites();
@@ -11,7 +12,6 @@ export async function getStaticPaths() {
   }));
 }
 
-
 const { slug } = Astro.params;
 
 const website = await getWebsite(slug);
@@ -19,6 +19,50 @@ const website = await getWebsite(slug);
 
 <Layout title="">
   <main>
-    <h1>{website.title}</h1>
+    <!-- top section -->
+    <section class="p1 top">
+      <h1>{website.title}</h1>
+      <p class="p-lg">
+        {website.excerpt}
+      </p>
+    </section>
+
+    <!-- consider section -->
+    <section class="p1 details">
+      <Title big="Consider" small="" />
+      <p>{website.consider}</p>
+
+      <ul>
+        {
+          website.features.map((feature) => (
+            <li class="feature-item">{feature}</li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Ideal for -->
+    <section class="p1 ideal">
+      <Title big="Ideal for" small="" />
+      <ul>
+        {website.idealFor.map((ideal) => <li>{ideal}</li>)}
+      </ul>
+    </section>
+
+    <!-- Technologies -->
+    <section class="technologies p1">
+      <Title big="Technologies" small="" />
+      <ul>
+        {website.technololgies.map((tech) => <li>{tech}</li>)}
+      </ul>
+    </section>
   </main>
 </Layout>
+
+<style>
+  .feature-item {
+    border-bottom: 1px solid black;
+    padding: 0.5rem;
+    padding-left: 1rem;
+  }
+</style>

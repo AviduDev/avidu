@@ -1,0 +1,24 @@
+---
+interface Props {
+    title: string;
+    excerpt: string;
+    slug: string
+}
+
+const { title, excerpt, slug } = Astro.props;
+---
+
+<li>
+    <h2>{title}</h2>
+    <p class="">{excerpt}</p>
+    <a href={`/website-design/${slug}`}>Learn More</a>
+</li>
+
+<style>
+    h2 {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+</style>

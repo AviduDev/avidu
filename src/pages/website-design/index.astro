@@ -1,4 +1,7 @@
 ---
+import ServiceCard from "../../components/ServiceCard.astro";
+import Title from "../../components/Title.astro";
+import FaqItem from "../../components/FaqItem.astro";
 import Layout from "../../layouts/Layout.astro";
 
 import { getWebsites } from "../../utils/sanity";
@@ -10,16 +13,49 @@ const websites = await getWebsites();
   <main>
     <section class="top p1">
       <h1>Which type?</h1>
+      <p class="p-lg">
+        Selecting the right website type is a strategic decision that can
+        significantly impact the success of your business or personal project.
+        It involves considering your goals, audience, budget, and long-term
+        plans to ensure your website effectively serves its purpose and
+        contributes to your overall objectives.
+      </p>
 
       <ul>
-        {websites.map((website: any) => (
-          <li>
-            <a href={`/website-design/${website.slug.current}`}>
-              {website.title}
-              </a>
-            </li>
-        ))}
+        {
+          websites.map((website: any) => (
+            <ServiceCard
+              slug={website.slug.current}
+              title={website.title}
+              excerpt={website.excerpt}
+            />
+          ))
+        }
       </ul>
+    </section>
+
+    <!-- faqs -->
+    <section class="p1">
+      <Title big="faqs" small="What others asks" />
+      <p class="p-lg">
+        Here's what others ask about services I provide. Also, you can ask any
+        question by contacting me.
+      </p>
+      <FaqItem
+        number={1}
+        question="What information do you need from me to get started?"
+        answer="I'll need information about your business, your goals for the website, content (text, images), and any specific design preferences or features you want to include."
+      />
+      <FaqItem
+        number={2}
+        question="What's the difference between custom website creation and using a pre-made template?"
+        answer="Custom website creation offers unique designs and features tailored to your needs, while templates are pre-designed and less customizable."
+      />
+      <FaqItem
+        number={3}
+        question="Will you provide ongoing website maintenance and support after the website is live?"
+        answer="Yes, I offer maintenance and support plans to ensure your website stays up-to-date, secure, and performs optimally."
+      />
     </section>
   </main>
 </Layout>
