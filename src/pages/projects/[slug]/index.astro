@@ -12,20 +12,35 @@ export async function getStaticPaths() {
       query: `
         {
           works {
+          title
+          description
+          collaborators
+          technologies
+          year
+          liveUrl
+          otherServices
+          slug
+          company
+          mainImage {
+            url
+            width
+            height
+          }
+          images {
+            url
+            width
+            height
+          }
+          category {
             title
             slug
-            mainImage {
-              url
-              width
-              height
-            }
           }
+        }
         }
       `,
     }),
   });
 
-  
   const works = await response.json();
   const paths = works.data.works.map((work) => ({
     params: {
@@ -44,10 +59,125 @@ const work = Astro.props.work;
 
 <Layout title={work.title}>
   <main>
+    <!-- top section -->
     <section class="p1 top">
-      <h1>{work.title}</h1>
+      <h2 class="top_title">{work.company}</h2>
+      <img src={work.mainImage.url} alt={work.title} />
+      <h1 class="bottom_title">{work.title}</h1>
     </section>
 
-    <section class="p1"></section>
+    <!-- description -->
+    <section class="p1">
+      <p class="p-lg">
+        {work.description}
+      </p>
+
+      <!-- work list items -->
+      <ul>
+        <li class="work_item">
+          <p class="work_detail">
+            <span class="left">Company:</span>
+            <span class="right">{work.company}</span>
+          </p>
+        </li>
+
+        <li class="work_item">
+          <p class="work_detail">
+            <span class="left">Year:</span>
+            <span class="right">{work.year}</span>
+          </p>
+        </li>
+
+        <li class="work_item">
+          <p class="work_detail">
+            <span class="left">Services:</span>
+            <span class="right service_item_container"
+              >{
+                work.otherServices.map((others) => (
+                  <span class="service_items">{others}</span>
+                ))
+              }</span
+            >
+          </p>
+        </li>
+
+        <li class="work_item">
+          <p class="work_detail">
+            <span class="left">Technologies:</span>
+            <span class="right service_item_container"
+              >{
+                work.technologies.map((techs) => (
+                  <span class="service_items">{techs}</span>
+                ))
+              }</span
+            >
+          </p>
+        </li>
+
+        <li class="work_item">
+          <p class="work_detail">
+            <span class="left">Collaborators:</span>
+            <span class="right service_item_container"
+              >{
+                work.collaborators.map((collabs) => (
+                  <span class="service_items">{collabs}</span>
+                ))
+              }</span
+            >
+          </p>
+        </li>
+
+        <li class="work_item">
+          <p class="work_detail">
+            <span class="left">URL:</span>
+            <a href={work.liveUrl} target="_blank" class="right"
+              >Open New in Tab🡥</a
+            >
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- gellery images -->
+    <section class="p1">
+      {work.images?.map((imgs) => <img src={imgs.url} alt={work.title} />)}
+    </section>
   </main>
 </Layout>
+
+<style>
+  .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 95vh;
+  }
+
+  .top_title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .bottom_title {
+    font-size: 1rem;
+    text-align: start;
+  }
+
+  .work_detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .work_item {
+    border-top: solid black 1px;
+  }
+  .service_item_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    text-align: end;
+  }
+</style>

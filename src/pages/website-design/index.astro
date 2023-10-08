@@ -2,6 +2,7 @@
 import Title from "../../components/Title.astro";
 import FaqItem from "../../components/FaqItem.astro";
 import Layout from "../../layouts/Layout.astro";
+import ServiceItem from "../../components/ServiceItem.astro";
 
 const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
   method: "POST",
@@ -39,7 +40,7 @@ const websites = await response.json();
         {
           websites.data.websites.map((website) => (
             <li>
-              <a href={`/website-design/${website.slug}`}>{website.title}</a>
+             <ServiceItem slug={website.slug} text={website.title}/>
             </li>
           ))
         }

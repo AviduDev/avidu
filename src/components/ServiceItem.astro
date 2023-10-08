@@ -1,13 +1,14 @@
 ---
 interface Props {
   text: string;
+  slug: string;
 }
 
-const { text } = Astro.props;
+const { text, slug } = Astro.props;
 ---
 
 <li>
-  <a href="#" class="link">
+  <a href={`/website-design/${slug}`} class="link">
     <span class="icon"
       ><!--?xml version="1.0" encoding="UTF-8"?-->
       <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->

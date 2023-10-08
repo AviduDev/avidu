@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
   company: string;
@@ -7,9 +7,11 @@ interface Props {
   category: string;
   liveUrl: string;
   slug: string;
+  src: string;
+  alt: string;
 }
 
-const { company, year, category, liveUrl, slug } = Astro.props;
+const { company, year, category, liveUrl, slug, src, alt } = Astro.props;
 ---
 
 <li>
@@ -19,11 +21,15 @@ const { company, year, category, liveUrl, slug } = Astro.props;
     <ul class="tags">
       <li>{category}</li>
     </ul>
-    <a href={liveUrl}>Live</a>
+    <a href={liveUrl} target="_blank">Live</a>
     <a href={`/projects/${slug}`}>Case Study</a>
   </div>
   <div class="image">
-
+    <img
+      src={src}
+      alt={alt}
+      style="height: 100%; width: 100%; object-fit: cover;"
+    />
   </div>
 </li>
 

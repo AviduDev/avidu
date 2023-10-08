@@ -14,10 +14,16 @@ const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
           works {
             title
             slug
+            company
+            year
             mainImage {
               url
               width
               height
+            }
+            category {
+              title
+              stage
             }
           }
         }
@@ -47,6 +53,12 @@ const works = await response.json();
             </li>
           ))
         }
+      </ul>
+
+      <ul>
+        {works.data.works.map((work) => (
+          <ProjectCard company={work.company} category={work.category.title} slug={work.slug} src={work.mainImage.url} year={work.year} alt="" liveUrl=""/>
+        ))}
       </ul>
     </section>
   </main>
