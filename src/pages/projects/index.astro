@@ -2,21 +2,33 @@
 import ProjectCard from "../../components/ProjectCard.astro";
 import Layout from "../../layouts/Layout.astro";
 
-import { getProjects } from "../../utils/sanity";
-
-const projects = await getProjects();
+const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+        {
+          works {
+            title
+            slug
+            mainImage {
+              url
+              width
+              height
+            }
+          }
+        }
+      `,
+  }),
+});
+const works = await response.json();
 ---
 
 <Layout title="">
   <main>
-    <!-- {
-      projects.map((project: any) => (
-        <a href={`/projects/${project.slug.current}`}>
-          <h3>{project.title}</h3>
-        </a>
-      ))
-    } -->
-
     <section class="p1 top">
       <h1>Projects</h1>
       <p class="p-lg">
@@ -29,13 +41,10 @@ const projects = await getProjects();
     <section class="p1">
       <ul>
         {
-          projects.map((project) => (
-            <ProjectCard
-              company={project.company}
-              category={project.projectType.map((type) => type)}
-              year={project.year}
-              liveUrl={project.liveUrl}
-            />
+          works.data.works.map((work) => (
+            <li>
+              <a href={`/projects/${work.slug}`}>{work.title}</a>
+            </li>
           ))
         }
       </ul>

@@ -1,12 +1,26 @@
 ---
-import ServiceCard from "../../components/ServiceCard.astro";
 import Title from "../../components/Title.astro";
 import FaqItem from "../../components/FaqItem.astro";
 import Layout from "../../layouts/Layout.astro";
 
-import { getWebsites } from "../../utils/sanity";
-
-const websites = await getWebsites();
+const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+        {
+          websites {
+            title
+            slug
+          }
+        }
+      `,
+  }),
+});
+const websites = await response.json();
 ---
 
 <Layout title="">
@@ -23,12 +37,10 @@ const websites = await getWebsites();
 
       <ul>
         {
-          websites.map((website: any) => (
-            <ServiceCard
-              slug={website.slug.current}
-              title={website.title}
-              excerpt={website.excerpt}
-            />
+          websites.data.websites.map((website) => (
+            <li>
+              <a href={`/website-design/${website.slug}`}>{website.title}</a>
+            </li>
           ))
         }
       </ul>

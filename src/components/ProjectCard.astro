@@ -1,14 +1,15 @@
 ---
-import { Image, imageConfig } from "astro:assets";
+import { Image } from 'astro:assets';
 
 interface Props {
   company: string;
   year: number;
   category: string;
   liveUrl: string;
+  slug: string;
 }
 
-const { company, year, category, liveUrl, src, alt } = Astro.props;
+const { company, year, category, liveUrl, slug } = Astro.props;
 ---
 
 <li>
@@ -19,15 +20,18 @@ const { company, year, category, liveUrl, src, alt } = Astro.props;
       <li>{category}</li>
     </ul>
     <a href={liveUrl}>Live</a>
+    <a href={`/projects/${slug}`}>Case Study</a>
   </div>
-  <div class="image"></div>
+  <div class="image">
+
+  </div>
 </li>
 
 <style>
-.tags {
+  .tags {
     display: flex;
     flex-direction: column;
-}
+  }
 
   li {
     border-top: solid black 1px;

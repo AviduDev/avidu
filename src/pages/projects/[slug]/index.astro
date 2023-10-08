@@ -1,24 +1,53 @@
 ---
-import Layout from "../../../layouts/Layout.astro"
-
-import { getProject, getProjects } from "../../../utils/sanity";
+import Layout from "../../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const projects = await getProjects();
-  return projects.map((project: any) => ({
-    params: { slug: project.slug.current },
+  const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        {
+          works {
+            title
+            slug
+            mainImage {
+              url
+              width
+              height
+            }
+          }
+        }
+      `,
+    }),
+  });
+
+  
+  const works = await response.json();
+  const paths = works.data.works.map((work) => ({
+    params: {
+      slug: work.slug,
+    },
+    props: {
+      work,
+    },
   }));
+
+  return paths;
 }
 
-
-const { slug } = Astro.params;
-
-const project = await getProject(slug);
-
+const work = Astro.props.work;
 ---
 
-<Layout title={project.title}>
-    <main>
-        <h1>{project.title}</h1>
-    </main>
+<Layout title={work.title}>
+  <main>
+    <section class="p1 top">
+      <h1>{work.title}</h1>
+    </section>
+
+    <section class="p1"></section>
+  </main>
 </Layout>

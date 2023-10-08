@@ -1,23 +1,49 @@
 ---
-import type { GetStaticPaths } from "astro";
 import Layout from "../../../layouts/Layout.astro";
-
-import { getWebsites, getWebsite } from "../../../utils/sanity";
 import Title from "../../../components/Title.astro";
 
 export async function getStaticPaths() {
-  const websites = await getWebsites();
-  return websites.map((website: any) => ({
-    params: { slug: website.slug.current },
+  const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+        {
+          websites {
+            consider
+            excerpt
+            features
+            idealFor
+            slug
+            technologies
+            title
+          }
+        }
+      `,
+    }),
+  });
+
+  const websites = await response.json();
+
+  const paths = websites.data.websites.map((website) => ({
+    params: {
+      slug: website.slug,
+    },
+    props: {
+      website,
+    },
   }));
+
+  return paths;
 }
 
-const { slug } = Astro.params;
-
-const website = await getWebsite(slug);
+const website = Astro.props.website;
 ---
 
-<Layout title="">
+<Layout title={website.title + ` | Avidu`}>
   <main>
     <!-- top section -->
     <section class="p1 top">
@@ -30,7 +56,7 @@ const website = await getWebsite(slug);
     <!-- consider section -->
     <section class="p1 details">
       <Title big="Consider" small="" />
-      <p>{website.consider}</p>
+      <p>consider</p>
 
       <ul>
         {
@@ -53,7 +79,7 @@ const website = await getWebsite(slug);
     <section class="technologies p1">
       <Title big="Technologies" small="" />
       <ul>
-        {website.technololgies.map((tech) => <li>{tech}</li>)}
+        {website.technologies.map((tech) => <li>{tech}</li>)}
       </ul>
     </section>
   </main>
