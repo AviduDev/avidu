@@ -1,0 +1,129 @@
+---
+import Title from "../../components/Title.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Contact Me | Avidu">
+  <main>
+    <section class="p1">
+      <h1>Reach Me</h1>
+      <p class="p-lg">
+        Hooray, you have reached the point! in the below contact form; add
+        everything you want to do with your business or idea. business and what
+        kind of website you needs and what features you need.
+      </p>
+    </section>
+
+    <!-- form -->
+    <section class="p1">
+      <form
+        method="POST"
+        action="https://formsubmit.co/hi@avidu.me"
+        enctype="multipart/form-data"
+      >
+        <!-- customer information -->
+        <Title big="You" small="" />
+        <p>Tell me about you and how can i get back to you.</p>
+        <!-- first name -->
+        <label for="name"
+          >First Name
+          <input type="text" name="name" id="name" required />
+        </label>
+
+        <!-- email -->
+        <label for="email"
+          >Email
+          <input type="email" name="email" required />
+        </label>
+
+        <!-- phone -->
+        <label for="phone"
+          >Phone
+          <input type="tel" name="phone" id="phone" />
+        </label>
+
+        <!-- website information -->
+        <Title big="What you want" small="" />
+        <p>Tell me about you and how can i get back to you.</p>
+
+        <!-- website type -->
+        <fieldset>
+          <legend>Which website type?</legend>
+
+          <label for="type">
+            <input type="radio" name="type" id="type" value="ecommerce" />
+             E-commerce Website
+          </label>
+
+          <label for="type">
+            <input type="radio" name="type" id="type" value="business" />
+             Business Website
+          </label>
+
+          <label for="type">
+            <input type="radio" name="type" id="type" value="personal" />
+             Personal Website
+          </label>
+
+          <label for="type">
+            <input type="radio" name="type" id="type" value="blog" />
+             Blog Website
+          </label>
+        </fieldset>
+
+        <!-- how many pages -->
+        <label for="pages"
+          >How many pages?
+          <input type="number" name="pages" id="pages" min="1" max="10" />
+        </label>
+
+        <!-- what features -->
+        <label for="features"
+          >Features
+          <textarea name="features" id="features" cols="30" rows="5"></textarea>
+        </label>
+
+        <!-- reference sites -->
+        <label for="reference"
+          >Website You May Like
+          <input type="text" name="reference" id="reference" />
+        </label>
+
+        <!-- file upload -->
+        <label for="attachment"
+          >Anything?
+          <input type="file" name="attachment" accept="image/png, image/jpeg" />
+        </label>
+
+        <!-- options -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://yourdomain.co/thanks.html"
+        />
+        <input type="hidden" name="_subject" value="New submission!" />
+
+        <button type="submit">Send Test</button>
+      </form>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form_group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,9 +1,171 @@
 ---
-import Layout from "../../layouts/Layout.astro"
+import FaqItem from "../../components/FaqItem.astro";
+import Title from "../../components/Title.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="">
-    <main>
-        <h1>About me</h1>
-    </main>
+  <main>
+    <section class="p1">
+      <h1>me</h1>
+      <p class="p-lg">
+        Hello there, I'm Avidu – your dedicated web developer on a journey to
+        turn ideas into digital realities. From a young age, my fascination with
+        technology and design led me to the world of web development, where I
+        found my passion and purpose.
+        <br />
+        <br />
+         With every project I undertake, I immerse myself in the challenge of
+        creating functional and aesthetically pleasing websites. I believe that
+        a well-crafted website has the power to make a lasting impression, so I
+        meticulously blend coding expertise with creative flair to build
+        seamless user experiences.
+      </p>
+    </section>
+
+    <section class="p1">
+      <Title big="bio" small="" />
+
+      <ul>
+        <li class="list_item">
+          <span class="left">First Name:</span>
+          <span class="right">Avidu</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left">Last Name:</span>
+          <span class="right">Bandara</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left">Date of Birth:</span>
+          <span class="right">1997-12-30</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left">Gender:</span>
+          <span class="right">Male</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left">Marital Status:</span>
+          <span class="right">Unmarried</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left">Language:</span>
+          <span class="right">English</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="p1">
+      <Title big="Education" small="" />
+
+      <ul>
+        <li class="list_item">
+          <span class="left">Full-stack developer Moratuwa open university</span
+          >
+          <span class="right">2023</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left"
+            >Course in modern web development at LinkedIn learning</span
+          >
+          <span class="right">2023</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left"
+            >Diploma in computer application from Sarvodaya</span
+          >
+          <span class="right">2019</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="p1">
+      <Title big="Experience" small="" />
+
+      <ul>
+        <li class="list_item">
+          <span class="left">Web developer at Craylux Media</span>
+          <span class="right">2023</span>
+        </li>
+
+        <li class="list_item">
+          <span class="left">Freelance Designer</span>
+          <span class="right">2019</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="p1">
+      <Title big="Skills - Weaknesses" small="" />
+
+      <ul>
+        <li class="list_item">
+          <span class="left">Design skills:</span>
+          <span class="right">Figma <br /> Adobe XD <br /> Adobe Photoshop</span
+          >
+        </li>
+
+        <li class="list_item">
+          <span class="left">Development skills:</span>
+          <span class="right"
+            >HTML <br /> CSS <br /> Javascript <br /> Astro <br
+            />Next.Js(Little)</span
+          >
+        </li>
+
+        <li class="list_item">
+          <span class="left">Soft skill:</span>
+          <span class="right"
+            >Non-stop learning <br /> Trying new things <br /> Never satisfies</span
+          >
+        </li>
+
+        <li class="list_item">
+          <span class="left">Weaknesses:</span>
+          <span class="right">Verbal Communication</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="p1">
+      <Title big="Question?" small="" />
+      <p class="p-lg">
+        Here is some of the questions and answers about myself. If want to know
+        more about me; drop me a message.
+      </p>
+      <FaqItem
+        number={1}
+        question="Do you own a degree?"
+        answer="I don't. I'm self learner"
+      />
+      <FaqItem
+        number={2}
+        question="How did you learn those skills?"
+        answer="Books, Online courses"
+      />
+      <FaqItem
+        number={3}
+        question="Do you preffer working in-house or remote?"
+        answer="I more preffer working remote."
+      />
+    </section>
+  </main>
 </Layout>
+
+<style>
+  .list_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .right {
+    text-align: end;
+  }
+</style>

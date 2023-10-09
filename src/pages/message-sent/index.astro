@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Message Sent Success | Avidu">
+  <main>
+    <section class="p1">
+      <img
+        src="https://res.cloudinary.com/avidu/image/upload/v1696829054/success_ykchq7.webp"
+        alt="form submitted successfully"
+      />
+
+      <p>Go back to <a href="/">Home</a></p>
+
+      <a href="mailto:hi@avidu.me">
+        <h1>hi@avidu.me</h1>
+      </a>
+
+      <ul>
+        <li>
+          <a href="#">LinkedIn</a>
+        </li>
+
+        <li>
+          <a href="#">Instagram</a>
+        </li>
+
+        <li>
+          <a href="#">Behance</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 95vh;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    padding: 0.5rem;
+  }
+</style>

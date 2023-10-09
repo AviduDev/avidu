@@ -16,6 +16,7 @@ const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
             slug
             company
             year
+            liveUrl
             mainImage {
               url
               width
@@ -38,9 +39,14 @@ const works = await response.json();
     <section class="p1 top">
       <h1>Projects</h1>
       <p class="p-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-        dicta similique facere ducimus asperiores! Praesentium enim obcaecati
-        perferendis iure eum!
+        Here's a list of a personal and commercial works I have done. Which
+        includes Web designs, Web developments, Brandings, and other type of
+        designs.
+        <br />
+        <br />
+         If you like to work with me to build your personal or business website,
+        just reach me out. I can send you a free quote as regarding to your
+        needs.
       </p>
     </section>
 
@@ -48,17 +54,19 @@ const works = await response.json();
       <ul>
         {
           works.data.works.map((work) => (
-            <li>
-              <a href={`/projects/${work.slug}`}>{work.title}</a>
-            </li>
+            <ProjectCard
+              company={work.company}
+              category={work.category.title}
+              slug={work.slug}
+              src={work.mainImage.url}
+              year={work.year}
+              alt={work.title}
+              liveUrl={work.liveUrl}
+              width={work.mainImage.width}
+              height={work.mainImage.height}
+            />
           ))
         }
-      </ul>
-
-      <ul>
-        {works.data.works.map((work) => (
-          <ProjectCard company={work.company} category={work.category.title} slug={work.slug} src={work.mainImage.url} year={work.year} alt="" liveUrl=""/>
-        ))}
       </ul>
     </section>
   </main>

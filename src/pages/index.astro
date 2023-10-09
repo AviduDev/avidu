@@ -5,6 +5,38 @@ import WhyItem from "../components/WhyItem.astro";
 import ProcessItem from "../components/ProcessItem.astro";
 import FaqItem from "../components/FaqItem.astro";
 import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+        {
+          works {
+            title
+            slug
+            company
+            year
+            liveUrl
+            mainImage {
+              url
+              width
+              height
+            }
+            category {
+              title
+              stage
+            }
+          }
+        }
+      `,
+  }),
+});
+const works = await response.json();
 ---
 
 <Layout title="Welcome to Astro.">
@@ -77,6 +109,24 @@ import Layout from "../layouts/Layout.astro";
         Here's a list of website design, development, and other design-related
         works that have been done for clients and myself.
       </p>
+
+      <ul>
+        {
+          works.data.works.map((work) => (
+            <ProjectCard
+              company={work.company}
+              category={work.category.title}
+              slug={work.slug}
+              src={work.mainImage.url}
+              year={work.year}
+              alt={work.title}
+              liveUrl={work.liveUrl}
+              width={work.mainImage.width}
+              height={work.mainImage.height}
+            />
+          ))
+        }
+      </ul>
     </section>
 
     <!-- the process -->

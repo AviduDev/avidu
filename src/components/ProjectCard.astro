@@ -9,9 +9,11 @@ interface Props {
   slug: string;
   src: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
-const { company, year, category, liveUrl, slug, src, alt } = Astro.props;
+const { company, year, category, liveUrl, slug, src, alt, width, height } = Astro.props;
 ---
 
 <li>
@@ -28,6 +30,8 @@ const { company, year, category, liveUrl, slug, src, alt } = Astro.props;
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       style="height: 100%; width: 100%; object-fit: cover;"
     />
   </div>
