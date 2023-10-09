@@ -100,12 +100,55 @@ import Layout from "../../layouts/Layout.astro";
         <input
           type="hidden"
           name="_next"
-          value="https://yourdomain.co/thanks.html"
+          value="https://avidu.vercel.app/message-sent"
         />
         <input type="hidden" name="_subject" value="New submission!" />
 
         <button type="submit">Send Test</button>
       </form>
+    </section>
+
+    <!-- divider -->
+    <hr />
+
+    <!-- other contact details -->
+    <section class="p1 other_contact">
+      <!-- details container -->
+      <div class="details_container">
+        <address>
+          Santhanagama,
+          <br />
+           Kumbukgete,
+          <br />
+           Sri Lanka,
+          <br />
+           60508.
+        </address>
+
+        <ul>
+          <li>
+            <a href="http://">LinkedIn &#129125;</a>
+          </li>
+
+          <li>
+            <a href="http://">Instagram &#129125;</a>
+          </li>
+
+          <li>
+            <a href="http://">Behance &#129125;</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- email -->
+      <a href="mailto:hi@avidu.me">
+        <h2>hi@avidu.me</h2>
+      </a>
+
+      <!-- phone number -->
+      <a href="tel:+94767578127">
+        <h2>+9476 75 78 127</h2>
+      </a>
     </section>
   </main>
 </Layout>
@@ -125,5 +168,15 @@ import Layout from "../../layouts/Layout.astro";
   fieldset {
     display: flex;
     flex-direction: column;
+  }
+
+  .details_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .other_contact h2 {
+    text-align: center;
   }
 </style>
