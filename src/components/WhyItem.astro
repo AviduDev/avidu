@@ -13,11 +13,52 @@ const { title, description } = Astro.props;
   </h3>
   <p>
     {description}
+    <span>
+      <svg
+        viewBox="0 0 25 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke="#ffffff"
+        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+          <path
+            d="M12.5 6V18.5M7 11.5L12.5 6L18 11.5"
+            stroke="#ffffff"
+            stroke-width="1.2"></path>
+        </g></svg
+      >
+    </span>
   </p>
 </li>
 
 <style>
-    li {
-        border-top: solid black 1px;
-    }
+  li {
+    display: flex;
+    flex-direction: column;
+    border-top: solid black 1px;
+    padding-bottom: 1rem;
+  }
+
+  h3 {
+    margin-bottom: 3rem;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+    background-color: #080808;
+    color: var(--beige);
+    width: 80%;
+    align-self: flex-end;
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  p svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-45deg);
+  }
 </style>
