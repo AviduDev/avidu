@@ -7,47 +7,83 @@ import FaqItem from "../components/FaqItem.astro";
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
-const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({
-    query: `
-        {
-          works {
-            title
-            slug
-            company
-            year
-            liveUrl
-            mainImage
-            category {
-              title
-              stage
-            }
-          }
-        }
-      `,
-  }),
-});
-const works = await response.json();
+// const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//     Accept: "application/json",
+//   },
+//   body: JSON.stringify({
+//     query: `
+//         {
+//           works {
+//             title
+//             slug
+//             company
+//             year
+//             liveUrl
+//             mainImage
+//             category {
+//               title
+//             }
+//           }
+//         }
+//       `,
+//   }),
+// });
+// const works = await response.json();
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <!-- hero section -->
     <section class="p1 hero">
-      <h1 class="hero-title">
-        <span class="top"> Website designer</span>
-        <span class="bottom"> Front-end developer</span>
-      </h1>
+      <h1 class="hero-title">Website designer</h1>
+      <div class="image_container">
+        <img
+          src="https://res.cloudinary.com/avidu/image/upload/v1695488712/hero.webp"
+          alt="image of avidu"
+        />
+      </div>
+      <h2 class="bottom_title">
+        Front-end developer <span class="svg">
+          <svg
+            viewBox="0 0 512 512"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <title>arrow-down-right</title>
+            <g
+              id="Page-1"
+              stroke="none"
+              stroke-width="1"
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <g
+                id="add"
+                fill="#000000"
+                transform="translate(106.666667, 64.000000)"
+              >
+                <polygon
+                  id="Shape"
+                  points="320 234.666667 192 362.666667 161.706667 332.373333 238.293333 256 -1.42108547e-14 256 -1.42108547e-14 0 42.6666667 0 42.6666667 213.333333 238.293333 213.333333 161.706667 136.96 192 106.666667"
+                >
+                </polygon>
+              </g>
+            </g>
+          </svg></span
+        >
+      </h2>
     </section>
 
     <!-- intro section -->
     <section class="intro p1">
       <h2>BETTER WEBSITES FOR YOUR NEXT BIG IDEA</h2>
+
+      <video muted autoplay loop src="https://res.cloudinary.com/avidu/video/upload/v1696919001/ezgif.com-gif-to-webm_jnwvas.webm"></video>
+
       <p class="p-lg">
         I build websites that are fast, SEO friendly, and looks unique(I think
         so) that cost only $0*. With these websites, you can sell or present
@@ -107,7 +143,7 @@ const works = await response.json();
       </p>
 
       <ul>
-        {
+        <!-- {
           works.data.works.map((work) => (
             <ProjectCard
               company={work.company}
@@ -121,7 +157,7 @@ const works = await response.json();
               height={work.mainImage.height}
             />
           ))
-        }
+        } -->
       </ul>
     </section>
 
@@ -190,18 +226,45 @@ const works = await response.json();
 <style>
   .hero {
     display: flex;
+    flex-direction: column;
     min-height: 95vh;
     background-size: cover;
-    text-align: center;
-    background-image: url("https://res.cloudinary.com/avidu/image/upload/v1695488712/hero.webp");
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--orange);
+    justify-content: space-between;
   }
 
-  .hero-title {
+  .image_container {
+    background-color: var(--beige);
+    width: 50%;
+    align-self: center;
+  }
+
+  .image_container img {
+  }
+
+  .svg svg {
+    transform: rotate(-180deg);
+    width: 80px;
+    height: 80px;
+  }
+
+  .bottom_title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .intro {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-top: var(--p-5);
+  }
+
+  video {
+    pointer-events: none;
   }
 </style>
 

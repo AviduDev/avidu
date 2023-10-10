@@ -51,8 +51,32 @@ const { title } = Astro.props;
     --p-lg: 1.2rem;
     --p-sm: 0.8rem;
 
+    /* font widths */
+    --pw-1: 300px;
+    --pw-2: 600px;
+    --pw-3: 900px;
+
     /* spacing */
     --p-1: 0.5rem;
+    --p-5: 5rem;
+
+    /* colours */
+    --orange: #fb5607;
+    --beige: #f4f3ef;
+    --yellow: #ffcc00;
+  }
+
+  /* ------classes------ */
+  .pw-1 {
+    max-width: var(--p-1);
+  }
+
+  .pw-2 {
+    max-width: var(--p-2);
+  }
+
+  .pw-3 {
+    max-width: var(--p-3);
   }
 
   /* ------element specific------ */
@@ -74,13 +98,14 @@ const { title } = Astro.props;
   }
 
   ::selection {
-    background-color: #ffcc00;
-    color: black;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
   }
 
   Image,
   img {
     max-width: 100%;
+    display: block;
   }
 
   ul,
