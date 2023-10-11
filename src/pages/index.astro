@@ -38,14 +38,8 @@ const works = await response.json();
   <main>
     <!-- hero section -->
     <section class="hero">
-      <h1 class="hero-title">Website designer</h1>
-      <div class="image_container">
-        <img
-          src="https://res.cloudinary.com/avidu/image/upload/v1695488712/hero.webp"
-          alt="image of avidu"
-        />
-      </div>
-      <h2 class="bottom_title">
+      <!-- title -->
+      <h1 class="bottom_title">
         Front-end developer <span class="svg">
           <svg
             viewBox="0 0 512 512"
@@ -53,7 +47,6 @@ const works = await response.json();
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <title>arrow-down-right</title>
             <g
               id="Page-1"
               stroke="none"
@@ -75,20 +68,30 @@ const works = await response.json();
             </g>
           </svg></span
         >
-      </h2>
+      </h1>
+
+      <!-- hero description -->
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus
+        asperiores, veritatis cumque cum perspiciatis, consequuntur deserunt
+        atque dicta, natus non quos corrupti odit voluptates aperiam.
+      </p>
+
+      <p class="availability">
+        <span class="block"></span>
+        <span class="text">Available to Work</span>
+      </p>
     </section>
 
     <!-- intro section -->
     <section class="intro">
-      <h2>BETTER WEBSITES FOR YOUR NEXT BIG IDEA</h2>
-
       <video
         muted
         autoplay
         loop
         src="https://res.cloudinary.com/avidu/video/upload/v1696919001/ezgif.com-gif-to-webm_jnwvas.webm"
       ></video>
-
+      <h2>BETTER WEBSITES FOR YOUR NEXT BIG IDEA</h2>
       <p class="p-lg">
         I build websites that are fast, SEO friendly, and looks unique(I think
         so) which cost only $0*. With those websites, you can sell or present
@@ -108,6 +111,33 @@ const works = await response.json();
         <ServiceItem slug="#" text="E-commerce Websites" />
         <ServiceItem slug="#" text="Portfolio Websites" />
         <ServiceItem slug="#" text="Blog Websites" />
+      </ul>
+    </section>
+
+    <!-- recent 3 projects -->
+    <section class="projects">
+      <Title big="Works" small="My recent works" />
+      <p class="p-lg">
+        Here's a list of website design, development, and other design-related
+        works that have been done for clients and myself.
+      </p>
+
+      <ul>
+        {
+          works.data.works.map((work) => (
+            <ProjectCard
+              company={work.company}
+              category={work.category.title}
+              slug={work.slug}
+              src={work.mainImage.url}
+              year={work.year}
+              alt={work.title}
+              liveUrl={work.liveUrl}
+              width={work.mainImage.width}
+              height={work.mainImage.height}
+            />
+          ))
+        }
       </ul>
     </section>
 
@@ -140,33 +170,6 @@ const works = await response.json();
           title="EASE OF CHANGE"
           description="To change a text on your website - you don't have to go to the site and open a website builder. Instead, we can use a browser-based dashboard to manage not just the text but all of your content on the website."
         />
-      </ul>
-    </section>
-
-    <!-- recent 3 projects -->
-    <section class="projects">
-      <Title big="Works" small="My recent works" />
-      <p class="p-lg">
-        Here's a list of website design, development, and other design-related
-        works that have been done for clients and myself.
-      </p>
-
-      <ul>
-        {
-          works.data.works.map((work) => (
-            <ProjectCard
-              company={work.company}
-              category={work.category.title}
-              slug={work.slug}
-              src={work.mainImage.url}
-              year={work.year}
-              alt={work.title}
-              liveUrl={work.liveUrl}
-              width={work.mainImage.width}
-              height={work.mainImage.height}
-            />
-          ))
-        }
       </ul>
     </section>
 
@@ -240,19 +243,15 @@ const works = await response.json();
   .hero {
     display: flex;
     flex-direction: column;
-    min-height: 95vh;
+    min-height: 100vh;
     background-size: cover;
     background-color: var(--orange);
     justify-content: space-between;
+    padding-bottom: 3rem;
   }
 
-  .image_container {
-    background-color: var(--beige);
-    width: 50%;
-    align-self: center;
-  }
-
-  .image_container img {
+  .hero p {
+    max-width: 80%;
   }
 
   .svg svg {
@@ -266,6 +265,29 @@ const works = await response.json();
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
+  }
+
+  .availability {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+  }
+
+  .block {
+    background-color: #2ee700;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.25rem;
+  }
+
+  @keyframes ops {
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .block {
+    animation: ops 1s ease-in-out infinite;
   }
 
   /* --------------------intro-------------------- */
@@ -304,6 +326,10 @@ const works = await response.json();
 
   /* --------------------project-------------------- */
   .projects {
+  }
+
+  .projects p {
+    padding-bottom: 3rem;
   }
 
   /* --------------------faq-------------------- */
