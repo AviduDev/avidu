@@ -26,11 +26,13 @@ const websites = await response.json();
 
 <Layout title="">
   <main>
-    <section class="top p1">
+    <section class="top">
       <h1>Which type?</h1>
       <p class="p-lg">
         Selecting the right website type is a strategic decision that can
         significantly impact the success of your business or personal project.
+        <br>
+        <br>
         It involves considering your goals, audience, budget, and long-term
         plans to ensure your website effectively serves its purpose and
         contributes to your overall objectives.
@@ -48,7 +50,7 @@ const websites = await response.json();
     </section>
 
     <!-- faqs -->
-    <section class="p1">
+    <section class="faqs">
       <Title big="faqs" small="What others asks" />
       <p class="p-lg">
         Here's what others ask about services I provide. Also, you can ask any
@@ -72,3 +74,17 @@ const websites = await response.json();
     </section>
   </main>
 </Layout>
+
+<style>
+  ul {
+    padding-top: 3rem;
+  }
+
+  h1 {
+    padding-bottom: 1rem;
+  }
+
+  .faqs p{
+    padding-bottom: 1rem;
+  }
+</style>

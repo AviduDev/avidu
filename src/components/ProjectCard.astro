@@ -13,18 +13,20 @@ interface Props {
   height: number;
 }
 
-const { company, year, category, liveUrl, slug, src, alt, width, height } = Astro.props;
+const { company, year, category, liveUrl, slug, src, alt, width, height } =
+  Astro.props;
 ---
 
 <li>
   <div class="content">
     <h3>{company}</h3>
     <p>{year}</p>
-    <ul class="tags">
-      <li>{category}</li>
-    </ul>
-    <a href={liveUrl} target="_blank">Live</a>
-    <a href={`/projects/${slug}`}>Case Study</a>
+    <span class="category">{category}</span>
+    <br />
+    <span class="links">
+      <a href={liveUrl} target="_blank">Live</a>
+      <a href={`/projects/${slug}`}>Case Study</a>
+    </span>
   </div>
   <div class="image">
     <img
@@ -45,5 +47,17 @@ const { company, year, category, liveUrl, slug, src, alt, width, height } = Astr
 
   li {
     border-top: solid black 1px;
+    padding-bottom: 3rem;
+  }
+
+  .image {
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0 0.5rem 0;
   }
 </style>
