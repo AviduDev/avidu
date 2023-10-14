@@ -7,6 +7,10 @@ import FaqItem from "../components/FaqItem.astro";
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
+
+let d = new Date();
+let year = d.getFullYear();
+
 const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
   method: "POST",
   headers: {
@@ -71,16 +75,22 @@ const works = await response.json();
       </h1>
 
       <!-- hero description -->
-      <p>
+      <!-- <p>
         Freelance website designer and front-end developer who works with
         startups and individuals to help to achieving their goals through well
         developed websites.
-      </p>
+      </p> -->
 
-      <p class="availability">
-        <span class="block"></span>
-        <span class="text">Available to Work</span>
-      </p>
+      <div class="hero_bottom">
+        <p class="availability">
+          <span class="block"></span>
+          <span class="text">Available to Work</span>
+        </p>
+
+        <p class="year">
+          &copy;{year}
+        </p>
+      </div>
     </section>
 
     <!-- intro section -->
@@ -91,12 +101,12 @@ const works = await response.json();
         loop
         src="https://res.cloudinary.com/avidu/video/upload/v1696919001/ezgif.com-gif-to-webm_jnwvas.webm"
       ></video>
-      <h2>BETTER WEBSITES FOR YOUR NEXT BIG IDEA</h2>
-      <p class="p-lg">
-        I build websites that are fast, SEO friendly, and looks unique(I think
-        so) which cost only $0*. With those websites, you can sell or present
-        your unique idea to your target audience.
-      </p>
+
+      <h2 class="">
+        Freelance website designer and front-end developer who works with
+        startups and individuals to help to achieving their goals through well
+        developed websites.
+      </h2>
     </section>
 
     <!-- services section -->
@@ -274,6 +284,11 @@ const works = await response.json();
     align-self: center;
   }
 
+  .hero_bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .block {
     background-color: #2ee700;
     width: 1rem;
@@ -293,10 +308,15 @@ const works = await response.json();
 
   /* --------------------intro-------------------- */
   .intro {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .intro h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: var(--h3);
   }
 
   video {

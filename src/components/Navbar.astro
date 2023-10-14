@@ -4,28 +4,34 @@
 
 <header>
   <nav class="p1">
-    <a href="/">/Avidu</a>
+    <a href="/" class="blend">/Avidu</a>
     <ul>
       <li>
-        <a href="/website-design">Which,</a>
+        <a href="/website-design" class="blend">Which,</a>
       </li>
 
       <li>
-        <a href="/projects">Works,</a>
+        <a href="/projects" class="blend">Works,</a>
       </li>
 
       <li>
-        <a href="/about-me">Me,</a>
+        <a href="/about-me" class="blend">Me,</a>
       </li>
 
       <li>
-        <a href="/contact-me">Contact</a>
+        <a href="/contact-me" class="blend">Contact</a>
       </li>
     </ul>
   </nav>
 </header>
 
 <style>
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
   nav {
     display: flex;
     flex-direction: row;
@@ -39,5 +45,10 @@
 
   li {
     padding: 0 0 0 0.5rem;
+  }
+
+  .blend {
+    color: black;
+    mix-blend-mode: difference;
   }
 </style>
