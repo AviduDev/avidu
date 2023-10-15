@@ -32,7 +32,7 @@ const works = await response.json();
 
 <Layout title="">
   <main>
-    <section class="p1 top">
+    <section class="top">
       <h1>Projects</h1>
       <p class="p-lg">
         Here's a list of a personal and commercial works I have done. Which
@@ -46,7 +46,7 @@ const works = await response.json();
       </p>
     </section>
 
-    <section class="p1">
+    <section class="">
       <ul>
         {
           works.data.works.map((work) => (
@@ -67,3 +67,14 @@ const works = await response.json();
     </section>
   </main>
 </Layout>
+
+<style>
+  /* top */
+  .top {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--orange);
+  }
+</style>

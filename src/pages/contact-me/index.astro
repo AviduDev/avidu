@@ -5,7 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="Contact Me | Avidu">
   <main>
-    <section class="p1">
+    <section class="top">
       <h1>Reach Me</h1>
       <p class="p-lg">
         Hooray, you have reached the point! in the below contact form; add
@@ -14,105 +14,18 @@ import Layout from "../../layouts/Layout.astro";
       </p>
     </section>
 
-    <!-- form -->
-    <section class="p1">
-      <form
-        method="POST"
-        action="https://formsubmit.co/hi@avidu.me"
-        enctype="multipart/form-data"
+    <!-- tally popup -->
+    <section>
+      <button
+        data-tally-open="wkG0rR"
+        data-tally-emoji-text="👋"
+        data-tally-emoji-animation="tada"
+        data-tally-auto-close="1000">Click me</button
       >
-        <!-- customer information -->
-        <Title big="You" small="" />
-        <p>Tell me about you and how can i get back to you.</p>
-        <!-- first name -->
-        <label for="name"
-          >First Name
-          <input type="text" name="name" id="name" required />
-        </label>
-
-        <!-- email -->
-        <label for="email"
-          >Email
-          <input type="email" name="email" required />
-        </label>
-
-        <!-- phone -->
-        <label for="phone"
-          >Phone
-          <input type="tel" name="phone" id="phone" />
-        </label>
-
-        <!-- website information -->
-        <Title big="What you want" small="" />
-        <p>Tell me about you and how can i get back to you.</p>
-
-        <!-- website type -->
-        <fieldset>
-          <legend>Which website type?</legend>
-
-          <label for="type">
-            <input type="radio" name="type" id="type" value="ecommerce" />
-             E-commerce Website
-          </label>
-
-          <label for="type">
-            <input type="radio" name="type" id="type" value="business" />
-             Business Website
-          </label>
-
-          <label for="type">
-            <input type="radio" name="type" id="type" value="personal" />
-             Personal Website
-          </label>
-
-          <label for="type">
-            <input type="radio" name="type" id="type" value="blog" />
-             Blog Website
-          </label>
-        </fieldset>
-
-        <!-- how many pages -->
-        <label for="pages"
-          >How many pages?
-          <input type="number" name="pages" id="pages" min="1" max="10" />
-        </label>
-
-        <!-- what features -->
-        <label for="features"
-          >Features
-          <textarea name="features" id="features" cols="30" rows="5"></textarea>
-        </label>
-
-        <!-- reference sites -->
-        <label for="reference"
-          >Website You May Like
-          <input type="text" name="reference" id="reference" />
-        </label>
-
-        <!-- file upload -->
-        <label for="attachment"
-          >Anything?
-          <input type="file" name="attachment" accept="image/png, image/jpeg" />
-        </label>
-
-        <!-- options -->
-        <input type="hidden" name="_captcha" value="false" />
-        <input
-          type="hidden"
-          name="_next"
-          value="https://avidu.vercel.app/message-sent"
-        />
-        <input type="hidden" name="_subject" value="New submission!" />
-
-        <button type="submit">Send Test</button>
-      </form>
     </section>
 
-    <!-- divider -->
-    <hr />
-
     <!-- other contact details -->
-    <section class="p1 other_contact">
+    <section class="other_contact">
       <!-- details container -->
       <div class="details_container">
         <address>
@@ -170,20 +83,69 @@ import Layout from "../../layouts/Layout.astro";
   </main>
 
   <style>
+    /* top */
+    .top {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      background-color: var(--orange);
+    }
+
+    /* form */
+    form label {
+      padding: 0.5rem 0.5rem 1rem 0.5rem;
+    }
+
     form {
       display: flex;
       flex-direction: column;
+    }
+
+    label {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    form input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid black;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    form textarea {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid black;
+      width: 100%;
+    }
+
+    input:active,
+    input:focus,
+    input:focus-visible,
+    input:focus-within {
+      border: none;
+      border-bottom: 1px solid black;
+    }
+
+    fieldset {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .types {
     }
 
     .form_group {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-    }
-
-    fieldset {
-      display: flex;
-      flex-direction: column;
     }
 
     .details_container {
@@ -212,5 +174,11 @@ import Layout from "../../layouts/Layout.astro";
     .bottom_links li {
       padding: 0.5rem;
     }
+
+    .form_dsc {
+      padding: 0.5rem 0 1rem 0;
+    }
   </style>
 </Layout>
+
+<script async src="https://tally.so/widgets/embed.js"></script>

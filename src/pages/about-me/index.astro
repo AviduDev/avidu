@@ -6,8 +6,9 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="">
   <main>
-    <section class="p1">
-      <h1>me</h1>
+    <!-- top -->
+    <section class="top">
+      <h1>About Myself</h1>
       <p class="p-lg">
         Hello there, I'm Avidu – your dedicated web developer on a journey to
         turn ideas into digital realities. From a young age, my fascination with
@@ -23,7 +24,8 @@ import Layout from "../../layouts/Layout.astro";
       </p>
     </section>
 
-    <section class="p1">
+    <!-- bio -->
+    <section class="bio">
       <Title big="bio" small="" />
 
       <ul>
@@ -59,7 +61,8 @@ import Layout from "../../layouts/Layout.astro";
       </ul>
     </section>
 
-    <section class="p1">
+    <!-- education -->
+    <section class="education">
       <Title big="Education" small="" />
 
       <ul>
@@ -85,7 +88,8 @@ import Layout from "../../layouts/Layout.astro";
       </ul>
     </section>
 
-    <section class="p1">
+    <!-- experience -->
+    <section class="experience">
       <Title big="Experience" small="" />
 
       <ul>
@@ -101,20 +105,22 @@ import Layout from "../../layouts/Layout.astro";
       </ul>
     </section>
 
-    <section class="p1">
+    <!-- skills -->
+    <section class="skills">
       <Title big="Skills - Weaknesses" small="" />
 
       <ul>
         <li class="list_item">
           <span class="left">Design skills:</span>
-          <span class="right">Figma <br /> Adobe XD <br /> Adobe Photoshop</span
+          <span class="right"
+            >Figma, <br /> Adobe XD, <br /> Adobe Photoshop</span
           >
         </li>
 
         <li class="list_item">
           <span class="left">Development skills:</span>
           <span class="right"
-            >HTML <br /> CSS <br /> Javascript <br /> Astro <br
+            >HTML, <br /> CSS, <br /> Javascript, <br /> Astro, <br
             />Next.Js(Little)</span
           >
         </li>
@@ -122,7 +128,7 @@ import Layout from "../../layouts/Layout.astro";
         <li class="list_item">
           <span class="left">Soft skill:</span>
           <span class="right"
-            >Non-stop learning <br /> Trying new things <br /> Never satisfies</span
+            >Non-stop learning, <br /> Trying new things, <br /> Never satisfies</span
           >
         </li>
 
@@ -133,39 +139,79 @@ import Layout from "../../layouts/Layout.astro";
       </ul>
     </section>
 
-    <section class="p1">
+    <!-- questions -->
+    <section class="questions">
       <Title big="Question?" small="" />
       <p class="p-lg">
         Here is some of the questions and answers about myself. If want to know
         more about me; drop me a message.
       </p>
-      <FaqItem
-        number={1}
-        question="Do you own a degree?"
-        answer="I don't. I'm self learner"
-      />
-      <FaqItem
-        number={2}
-        question="How did you learn those skills?"
-        answer="Books, Online courses"
-      />
-      <FaqItem
-        number={3}
-        question="Do you preffer working in-house or remote?"
-        answer="I more preffer working remote."
-      />
+      <ul>
+        <FaqItem
+          number={1}
+          question="Do you own a degree?"
+          answer="I don't. I'm self learner"
+        />
+        <FaqItem
+          number={2}
+          question="How did you learn those skills?"
+          answer="Books, Online courses"
+        />
+        <FaqItem
+          number={3}
+          question="Do you preffer working in-house or remote?"
+          answer="I more preffer working remote."
+        />
+      </ul>
     </section>
   </main>
 </Layout>
 
 <style>
+
+/* top */
+.top {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--orange);
+}
+
   .list_item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top: 1px solid black;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
   }
 
   .right {
     text-align: end;
+  }
+
+  /* bio */
+  .bio ul {
+    padding-top: 3rem;
+  }
+
+  /* education */
+  .education ul {
+    padding-top: 3rem;
+  }
+
+  /* experience */
+  .experience ul {
+    padding-top: 3rem;
+  }
+
+  /* skills */
+  .skills ul {
+    padding-top: 3rem;
+  }
+
+  /* skills */
+  .questions ul {
+    padding-top: 3rem;
   }
 </style>

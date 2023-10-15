@@ -56,19 +56,21 @@ const work = Astro.props.work;
 <Layout title={work.title}>
   <main>
     <!-- top section -->
-    <section class="p1 top">
+    <section class="top">
       <h2 class="top_title">{work.company}</h2>
       <img src={work.mainImage.url} alt={work.title} />
       <h1 class="bottom_title">{work.title}</h1>
     </section>
 
     <!-- description -->
-    <section class="p1">
+    <section class="">
       <p class="p-lg">
         {work.description}
       </p>
+    </section>
 
-      <!-- work list items -->
+    <!-- work list items -->
+    <section class="details">
       <ul>
         <li class="work_item">
           <p class="work_detail">
@@ -90,7 +92,7 @@ const work = Astro.props.work;
             <span class="right service_item_container"
               >{
                 work.otherServices.map((others) => (
-                  <span class="service_items">{others}</span>
+                  <span class="service_items">{others},</span>
                 ))
               }</span
             >
@@ -103,7 +105,7 @@ const work = Astro.props.work;
             <span class="right service_item_container"
               >{
                 work.technologies.map((techs) => (
-                  <span class="service_items">{techs}</span>
+                  <span class="service_items">{techs},</span>
                 ))
               }</span
             >
@@ -127,7 +129,7 @@ const work = Astro.props.work;
           <p class="work_detail">
             <span class="left">URL:</span>
             <a href={work.liveUrl} target="_blank" class="right"
-              >Open New in Tab🡥</a
+              >Open in New Tab🡥</a
             >
           </p>
         </li>
@@ -135,7 +137,7 @@ const work = Astro.props.work;
     </section>
 
     <!-- gellery images -->
-    <section class="p1">
+    <section class="">
       {work.images?.map((imgs) => <img src={imgs.url} alt={work.title} />)}
     </section>
   </main>
@@ -146,7 +148,8 @@ const work = Astro.props.work;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 95vh;
+    min-height: 100vh;
+    background-color: var(--orange);
   }
 
   .top_title {
@@ -167,6 +170,7 @@ const work = Astro.props.work;
 
   .work_item {
     border-top: solid black 1px;
+    padding: 0.5rem 0 1rem 0;
   }
   .service_item_container {
     display: flex;
