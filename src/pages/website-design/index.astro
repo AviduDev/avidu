@@ -31,18 +31,21 @@ const websites = await response.json();
       <p class="p-lg">
         Selecting the right website type is a strategic decision that can
         significantly impact the success of your business or personal project.
-        <br>
-        <br>
-        It involves considering your goals, audience, budget, and long-term
+        <br />
+        <br />
+         It involves considering your goals, audience, budget, and long-term
         plans to ensure your website effectively serves its purpose and
         contributes to your overall objectives.
       </p>
+    </section>
 
+    <!-- service items -->
+    <section class="services">
       <ul>
         {
           websites.data.websites.map((website) => (
             <li>
-             <ServiceItem slug={website.slug} text={website.title}/>
+              <ServiceItem slug={website.slug} text={website.title} />
             </li>
           ))
         }
@@ -76,6 +79,14 @@ const websites = await response.json();
 </Layout>
 
 <style>
+  /* top */
+  .top {
+    min-height: 100vh;
+    background-color: var(--orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   ul {
     padding-top: 3rem;
   }
@@ -84,7 +95,7 @@ const websites = await response.json();
     padding-bottom: 1rem;
   }
 
-  .faqs p{
-    padding-bottom: 1rem;
+  .faqs p {
+    padding-bottom: 3rem;
   }
 </style>

@@ -1,0 +1,57 @@
+---
+import Title from "./Title.astro";
+---
+
+<div class="container">
+  <h2 class="h2">Get a free quote</h2>
+
+  <div class="details">
+    <p>
+      Want to know how much will your dream cost? Request a Free Quote and let's
+      turn your vision into reality.
+    </p>
+    <a href="/contact-me/#tally">Get A Free Quote</a>
+  </div>
+
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/avidu/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/avidu97/" target="_blank">Instagram</a>
+    <a href="https://dribbble.com/avi97" target="_blank">Dribble</a>
+  </div>
+
+  <a href="mailto:hi@avidu.me" class="email">hi@avidu.me</a>
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--orange);
+    padding: 3rem 0.5rem 3rem 0.5rem;
+  }
+
+  .container span {
+    width: 100%;
+  }
+
+  .email {
+    text-transform: uppercase;
+    font-size: 14vw;
+    font-weight: bold;
+  }
+
+  .h2 {
+    width: 100%;
+    border-bottom: 1px solid black;
+    align-self: flex-start;
+  }
+
+  .socials {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+</style>
