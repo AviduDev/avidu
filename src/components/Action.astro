@@ -13,13 +13,13 @@ import Title from "./Title.astro";
     <a href="/contact-me/#tally">Get A Free Quote</a>
   </div>
 
+  <a href="mailto:hi@avidu.me" class="email">hi@avidu.me</a>
+
   <div class="socials">
     <a href="https://www.linkedin.com/in/avidu/" target="_blank">LinkedIn</a>
     <a href="https://www.instagram.com/avidu97/" target="_blank">Instagram</a>
     <a href="https://dribbble.com/avi97" target="_blank">Dribble</a>
   </div>
-
-  <a href="mailto:hi@avidu.me" class="email">hi@avidu.me</a>
 </div>
 
 <style>
@@ -32,6 +32,21 @@ import Title from "./Title.astro";
     padding: 3rem 0.5rem 3rem 0.5rem;
   }
 
+  .container p {
+    padding: 1rem 0 1rem 0;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 0 3rem 0;
+  }
+
+  .details a {
+    align-self: flex-end;
+  }
+
   .container span {
     width: 100%;
   }
@@ -40,6 +55,7 @@ import Title from "./Title.astro";
     text-transform: uppercase;
     font-size: 14vw;
     font-weight: bold;
+    padding: 3rem 0 3rem 0;
   }
 
   .h2 {
