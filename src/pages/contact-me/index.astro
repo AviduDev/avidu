@@ -23,7 +23,7 @@ import Layout from "../../layouts/Layout.astro";
     </section>
 
     <!-- tally popup -->
-    <section class="tally">
+    <section class="tally" id="tally">
       <iframe
         data-tally-src="https://tally.so/embed/wkG0rR?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         loading="lazy"
@@ -77,8 +77,6 @@ Intake Questionnaire "></iframe><script>
       align-self: center;
     }
 
-
-
     .other_contact {
       display: flex;
       flex-direction: column;
@@ -89,7 +87,6 @@ Intake Questionnaire "></iframe><script>
       text-align: center;
       padding: 3rem 0 3rem 0;
     }
-
 
     .tally {
       display: flex;
@@ -103,3 +100,5 @@ Intake Questionnaire "></iframe><script>
     }
   </style>
 </Layout>
+
+<script async src="https://tally.so/widgets/embed.js"></script>

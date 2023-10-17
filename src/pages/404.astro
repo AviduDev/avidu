@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page Not Found | Avidu">
+  <main>
+    <section class="top">
+      <h1>Are you lost?</h1>
+      <img
+        src="https://res.cloudinary.com/avidu/image/upload/v1697557608/giphy_r3tncq.webp"
+        alt="confused girl gif"
+      />
+
+      <div>
+        <h2>Don't be</h2>
+        <a href="/">Go Back to Home</a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    /* background-color: var(--orange); */
+  }
+
+  img {
+    width: 768px;
+    height: auto;
+    align-self: center;
+    padding-top: 5rem;
+  }
+
+  div {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0 5rem 0;
+  }
+
+  a {
+    padding: 1rem;
+    text-align: center;
+  }
+</style>
