@@ -2,7 +2,7 @@
 import Title from "./Title.astro";
 ---
 
-<div class="container">
+<section class="container">
   <h2 class="h2">Get a free quote</h2>
 
   <div class="details">
@@ -20,7 +20,7 @@ import Title from "./Title.astro";
     <a href="https://www.instagram.com/avidu97/" target="_blank">Instagram</a>
     <a href="https://dribbble.com/avi97" target="_blank">Dribble</a>
   </div>
-</div>
+</section>
 
 <style>
   .container {
@@ -32,6 +32,12 @@ import Title from "./Title.astro";
     padding: 3rem 0.5rem 3rem 0.5rem;
   }
 
+   @media (min-width: 768px) {
+    .container {
+          padding: 8rem 1rem 3rem 1rem;
+    }
+   }
+
   .container p {
     padding: 1rem 0 1rem 0;
   }
@@ -42,6 +48,13 @@ import Title from "./Title.astro";
     width: 100%;
     padding: 0 0 3rem 0;
   }
+
+     @media (min-width: 768px) {
+        .details {
+              padding: 0 0 5rem 0;
+
+        }
+     }
 
   .details a {
     align-self: flex-end;

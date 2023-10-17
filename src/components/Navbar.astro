@@ -5,7 +5,7 @@
 <header>
   <nav class="p1">
     <a href="/" class="blend">/Avidu</a>
-    <ul>
+    <div>
       <li>
         <a href="/website-design" class="blend">Which,</a>
       </li>
@@ -21,7 +21,7 @@
       <li>
         <a href="/contact-me" class="blend">Contact</a>
       </li>
-    </ul>
+    </div>
   </nav>
 </header>
 
@@ -29,16 +29,19 @@
   header {
     position: fixed;
     top: 0;
-    width: 100%;
+    min-width: 100%;
+    margin: 0 auto;
   }
 
   nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
-  ul {
+  div {
     display: flex;
     flex-direction: row;
   }
