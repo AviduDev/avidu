@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.0.1",
     "astro": "^3.2.2",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0"
