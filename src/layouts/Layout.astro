@@ -197,6 +197,27 @@ const { title } = Astro.props;
 
   /* ------restting------ */
   /* ------restting------ */
-</style>
 
-<style></style>
+  /* --------------------responsive design-------------------- */
+
+  @media (min-width: 768px) {
+    :root {
+      --h1: 5rem;
+      --h2: 4rem;
+      --h3: 3rem;
+      --h4: 2rem;
+      --h5: 1rem;
+      --p: 1rem;
+      --p-lg: 1.2rem;
+      --p-sm: 0.8rem;
+    }
+
+    p {
+      max-width: 600px;
+    }
+
+    section {
+      padding: 10rem 1rem 1rem 1rem;
+    }
+  }
+</style>

@@ -7,7 +7,6 @@ import FaqItem from "../components/FaqItem.astro";
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
-
 let d = new Date();
 let year = d.getFullYear();
 
@@ -253,7 +252,7 @@ const works = await response.json();
   .hero {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-size: cover;
     background-color: var(--orange);
     justify-content: space-between;
@@ -268,6 +267,13 @@ const works = await response.json();
     transform: rotate(-180deg);
     width: 80px;
     height: 80px;
+  }
+
+  @media (min-width: 768px) {
+    .svg svg {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .bottom_title {
@@ -360,6 +366,8 @@ const works = await response.json();
   .faqs p {
     padding-bottom: 3rem;
   }
+
+  /* --------------------responsive design-------------------- */
 </style>
 
 <script></script>
