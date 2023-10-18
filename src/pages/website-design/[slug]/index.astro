@@ -58,7 +58,7 @@ const website = Astro.props.website;
       <Title big="Consider" small="" />
       <p class="p-lg">{website.consider}</p>
 
-      <ul>
+      <ul class="consider_item">
         {
           website.features.map((feature) => (
             <li class="feature_item">
@@ -123,6 +123,18 @@ const website = Astro.props.website;
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--orange);
+  }
+
+  .consider_item {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .consider_item li {
+    max-width: 768px;
+    padding: 0.5rem 0.5rem 3rem 0.5rem;
   }
 
   .details ul {

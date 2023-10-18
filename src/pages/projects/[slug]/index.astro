@@ -71,7 +71,7 @@ const work = Astro.props.work;
 
     <!-- work list items -->
     <section class="details">
-      <ul>
+      <ul class="details_items_list">
         <li class="work_item">
           <p class="work_detail">
             <span class="left">Company:</span>
@@ -153,13 +153,16 @@ const work = Astro.props.work;
   }
 
   .top_title {
-    font-size: 2.5rem;
+    font-size: var(--h1);
     text-align: center;
   }
 
   .bottom_title {
-    font-size: 1rem;
-    text-align: start;
+    font-size: var(--p-lg);
+    font-weight: normal;
+    text-align: center;
+    padding: 1rem;
+    text-transform: none;
   }
 
   .work_detail {
@@ -171,6 +174,10 @@ const work = Astro.props.work;
   .work_item {
     border-top: solid black 1px;
     padding: 0.5rem 0 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .service_item_container {
     display: flex;
@@ -179,5 +186,12 @@ const work = Astro.props.work;
 
   .right {
     text-align: end;
+  }
+
+  .details_items_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 768px;
   }
 </style>
