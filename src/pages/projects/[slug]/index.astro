@@ -13,6 +13,7 @@ export async function getStaticPaths() {
         {
           works {
           title
+          name
           description
           collaborators
           technologies
@@ -22,11 +23,7 @@ export async function getStaticPaths() {
           slug
           company
           mainImage
-          images {
-            url
-            width
-            height
-          }
+          images
           category {
             title
             slug
@@ -57,7 +54,7 @@ const work = Astro.props.work;
   <main>
     <!-- top section -->
     <section class="top">
-      <h2 class="top_title">{work.company}</h2>
+      <h2 class="top_title">{work.name}</h2>
       <img src={work.mainImage.url} alt={work.title} />
       <h1 class="bottom_title">{work.title}</h1>
     </section>
@@ -138,7 +135,17 @@ const work = Astro.props.work;
 
     <!-- gellery images -->
     <section class="">
-      {work.images?.map((imgs) => <img src={imgs.url} alt={work.title} />)}
+      {
+        work.images?.map((imgs) => (
+          <img
+          class="images"
+            src={imgs.url}
+            width={imgs.width}
+            height={imgs.height}
+            alt={work.title}
+          />
+        ))
+      }
     </section>
   </main>
 </Layout>
@@ -166,18 +173,19 @@ const work = Astro.props.work;
   }
 
   .work_detail {
+    border-top: solid black 1px;
+
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-between;
   }
 
   .work_item {
-    border-top: solid black 1px;
     padding: 0.5rem 0 1rem 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: stretch;
   }
   .service_item_container {
     display: flex;
@@ -189,9 +197,15 @@ const work = Astro.props.work;
   }
 
   .details_items_list {
+    align-self: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     max-width: 768px;
+  }
+
+  .images {
+    align-self: center;
+    padding: 1rem;
   }
 </style>

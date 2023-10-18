@@ -10,17 +10,10 @@ import Layout from "../../layouts/Layout.astro";
     <section class="top">
       <h1>About Myself</h1>
       <p class="p-lg">
-        Hello there, I'm Avidu – your dedicated web developer on a journey to
-        turn ideas into digital realities. From a young age, my fascination with
-        technology and design led me to the world of web development, where I
-        found my passion and purpose.
-        <br />
-        <br />
-         With every project I undertake, I immerse myself in the challenge of
-        creating functional and aesthetically pleasing websites. I believe that
-        a well-crafted website has the power to make a lasting impression, so I
-        meticulously blend coding expertise with creative flair to build
-        seamless user experiences.
+        Hello there, I'm Avidu. Freelance web designer and front-end developer
+        who working towards to turn ideas into digital realities. From a young age, my
+        fascination with technology and design led me to the world of web
+        development, where I found my passion and purpose.
       </p>
     </section>
 
@@ -127,9 +120,7 @@ import Layout from "../../layouts/Layout.astro";
 
         <li class="list_item">
           <span class="left">Soft skill:</span>
-          <span class="right"
-            >Non-stop learning, <br /> Trying new things, <br /> Never satisfies</span
-          >
+          <span class="right">Non-stop learning, <br /> Trying new things</span>
         </li>
 
         <li class="list_item">
@@ -140,7 +131,7 @@ import Layout from "../../layouts/Layout.astro";
     </section>
 
     <!-- questions -->
-    <section class="questions">
+    <!-- <section class="questions">
       <Title big="Question?" small="" />
       <p class="p-lg">
         Here is some of the questions and answers about myself. If want to know
@@ -163,20 +154,24 @@ import Layout from "../../layouts/Layout.astro";
           answer="I more preffer working remote."
         />
       </ul>
-    </section>
+    </section> -->
   </main>
 </Layout>
 
 <style>
+  /* top */
+  .top {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--orange);
+  }
 
-/* top */
-.top {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--orange);
-}
+  ul {
+    align-self: center;
+    max-width: 768px;
+  }
 
   .list_item {
     display: flex;
