@@ -50,7 +50,11 @@ export async function getStaticPaths() {
 const work = Astro.props.work;
 ---
 
-<Layout title={work.title + ` | Avidu`} description={work.description} image="">
+<Layout
+  title={work.title + ` | Avidu`}
+  description={work.description}
+  image={work.mainImage.url}
+>
   <main>
     <!-- top section -->
     <section class="top">
@@ -138,7 +142,7 @@ const work = Astro.props.work;
       {
         work.images?.map((imgs) => (
           <img
-          class="images"
+            class="images"
             src={imgs.url}
             width={imgs.width}
             height={imgs.height}

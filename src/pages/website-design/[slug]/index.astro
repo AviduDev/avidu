@@ -43,7 +43,11 @@ export async function getStaticPaths() {
 const website = Astro.props.website;
 ---
 
-<Layout title={website.title + ` | Avidu`} description={website.excerpt} image="">
+<Layout
+  title={website.title + ` | Avidu`}
+  description={website.excerpt}
+  image="https://res.cloudinary.com/avidu/image/upload/v1696913589/E-commerce_store_design_by_avidu_sampath_bk3vnx.webp"
+>
   <main>
     <!-- top section -->
     <section class="top">
