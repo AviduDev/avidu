@@ -10,7 +10,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 let d = new Date();
 let year = d.getFullYear();
 
-const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+const workRequest = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -35,7 +35,29 @@ const response = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
       `,
   }),
 });
-const works = await response.json();
+
+// -------------------
+
+const websiteRequest = await fetch(import.meta.env.HYGRAPH_ENDPOINT, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({
+    query: `
+        {
+          websites {
+            title
+            slug
+          }
+        }
+      `,
+  }),
+});
+const websites = await websiteRequest.json();
+
+const works = await workRequest.json();
 ---
 
 <Layout title="Website Designer and Front-end Developer | Avidu">
@@ -119,10 +141,13 @@ const works = await response.json();
         need to be consider.
       </p>
       <ul>
-        <ServiceItem slug="#" text="Business Websites" />
-        <ServiceItem slug="#" text="E-commerce Websites" />
-        <ServiceItem slug="#" text="Portfolio Websites" />
-        <ServiceItem slug="#" text="Blog Websites" />
+        {
+          websites.data.websites.map((website) => (
+            <li>
+              <ServiceItem slug={website.slug} text={website.title} />
+            </li>
+          ))
+        }
       </ul>
     </section>
 
