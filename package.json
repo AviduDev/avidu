@@ -12,8 +12,10 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.0.1",
     "astro": "^3.2.2",
+    "astro-seo-schema": "^3.2.1",
     "graphql": "^16.8.1",
-    "graphql-request": "^6.1.0"
+    "graphql-request": "^6.1.0",
+    "schema-dts": "^1.1.2"
   },
   "devDependencies": {
     "prettier": "^3.0.3",

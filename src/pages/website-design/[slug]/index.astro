@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 const website = Astro.props.website;
 ---
 
-<Layout title={website.title + ` | Avidu`}>
+<Layout title={website.title + ` | Avidu`} description={website.excerpt} image="">
   <main>
     <!-- top section -->
     <section class="top">
