@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Action from "../components/Action.astro";
+import { Schema } from "astro-seo-schema";
 
 interface Props {
   title: string;
@@ -55,15 +56,52 @@ const { title, description } = Astro.props;
     <meta name="twitter:creator" content="Avidu" />
 
     <!-- JSON-LD -->
-    <script type="application/ld+json">
-      {
+
+    <!-- --------------------- -->
+
+    <Schema
+      item={{
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Avidu",
-        "alternateName": "Avidu Bandara",
-        "url": "https://www.avidu.me/"
-      }
-    </script>
+        name: "Avidu",
+        alternateName: "Avidu Bandara",
+        url: "https://www.avidu.me/",
+      }}
+    />
+
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "Person",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Kumbukgete",
+          addressRegion: "North Western Province",
+          postalCode: "60508",
+          streetAddress: "84 Santhanagama, Kumbukgete, 60508.",
+        },
+        email: "mailto:hi@avidu.me",
+        image:
+          "https://res.cloudinary.com/avidu/image/upload/v1695488318/Avidu_Web__Designer_and_Front_end_Developer_from_Sri_Lanka_from_UP_JPG_jxj7hv.webp",
+        jobTitle: "Web Designer",
+        name: "Avidu",
+        telephone: "(9476) 757-8127",
+        url: "https://www.avidu.me",
+      }}
+    />
+
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Website Designing",
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Avidu",
+        },
+      }}
+    />
+    <!-- --------------------- -->
   </head>
   <body>
     <Navbar />
