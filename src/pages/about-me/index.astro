@@ -2,6 +2,26 @@
 import FaqItem from "../../components/FaqItem.astro";
 import Title from "../../components/Title.astro";
 import Layout from "../../layouts/Layout.astro";
+
+// schema
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Kumbukgete",
+    addressRegion: "North Western Province",
+    postalCode: "60508",
+    streetAddress: "84 Santhanagama, Kumbukgete, 60508.",
+  },
+  email: "mailto:hi@avidu.me",
+  image:
+    "https://res.cloudinary.com/avidu/image/upload/v1695488318/Avidu_Web__Designer_and_Front_end_Developer_from_Sri_Lanka_from_UP_JPG_jxj7hv.webp",
+  jobTitle: "Web Designer",
+  name: "Avidu",
+  telephone: "(9476) 757-8127",
+  url: "https://www.avidu.me",
+};
 ---
 
 <Layout
@@ -159,6 +179,8 @@ import Layout from "../../layouts/Layout.astro";
       </ul>
     </section> -->
   </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 </Layout>
 
 <style>
