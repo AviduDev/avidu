@@ -2,8 +2,6 @@
 import Navbar from "../components/Navbar.astro";
 import Action from "../components/Action.astro";
 
-import { Schema } from "astro-seo-schema";
-
 interface Props {
   title: string;
   description: string;
@@ -32,7 +30,7 @@ const { title, description } = Astro.props;
 
     <!-- openGraph -->
     <meta property="og:title" content={title} />
-    <meta property="og:site_name" data-page-subject="true" content="Avidu" />
+    <meta property="og:site_name" content="Avidu" />
     <meta property="og:url" content="https://avidu.me" />
     <meta property="og:description" name="description" content={description} />
     <meta
@@ -52,14 +50,15 @@ const { title, description } = Astro.props;
     <meta name="twitter:creator" content="Avidu" />
 
     <!-- JSON-LD -->
-
-    <Schema
-      item={{
+    <script type="application/ld+json">
+      {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        url: "https://avidu.me/",
-      }}
-    />
+        "name": "Avidu",
+        "alternateName": "Avidu Bandara",
+        "url": "https://www.avidu.me/"
+      }
+    </script>
   </head>
   <body>
     <Navbar />
